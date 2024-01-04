@@ -13,11 +13,12 @@ def process_request():
     user_question = data.get('user_question')
 
     # Process the request using your existing functions
-    filter_data = search_products.text_to_text_conversation(session_id, user_question)
-    product_links = search_products.create_url(filter_data)
+    filter_data = search_products_pplx.text_to_text_conversation(session_id, user_question)
+    product_links = search_products_pplx.create_url(filter_data)
 
     # Return the response
-    return jsonify(product_links)
+    # return jsonify(product_links)
+    return product_links
 
 if __name__ == '__main__':
     app.run(debug=True)
